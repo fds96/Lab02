@@ -43,7 +43,7 @@ public class AlienController {
     }
   
     
-    @FXML
+    @FXML 
     void doTranslate(ActionEvent event) {
     	//verifico testo e lo rendo case-insensitive
     	String testo = txtWord.getText().trim();
@@ -61,8 +61,8 @@ public class AlienController {
     		alienDictionary.addWord(parola[0], parola[1]);
     		txtResult.appendText("Traduzione di " + parola[0] + " aggiunta al dizionario\n");
     	}
-    }
     
+    }
     
     @FXML
     void doReset(ActionEvent event) {

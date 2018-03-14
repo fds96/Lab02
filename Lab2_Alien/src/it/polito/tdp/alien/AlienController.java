@@ -45,7 +45,7 @@ public class AlienController {
     
     @FXML
     void doTranslate(ActionEvent event) {
-    	//verifico testo e lo rendo case insensitive
+    	//verifico testo e lo rendo case-insensitive
     	String testo = txtWord.getText().trim();
     	if(!testo.matches("[a-z A-Z]+")) {
     		txtResult.appendText("Inserire soltanto parole\n");

@@ -17,6 +17,8 @@ import javafx.scene.control.TextField;
 
 public class AlienController {
 	
+	private AlienDictionary alienDictionary = new AlienDictionary();
+	
     @FXML
     private ResourceBundle resources;
     @FXML
@@ -43,13 +45,28 @@ public class AlienController {
     
     @FXML
     void doTranslate(ActionEvent event) {
-    	    	
+    	//verifico testo e lo rendo case insensitive
+    	String testo = txtWord.getText().trim();
+    	if(!testo.matches("[a-z A-Z]+")) {
+    		txtResult.appendText("Inserire soltanto parole\n");
+    		return;
+    	}
+    	testo.toLowerCase();
+    	//verifico se ho due parole o una per implementare il metodo corretto
+    	String[] parola = testo.split(" ");
+    	if(parola.length==1) {
+    		txtResult.appendText("La parola " + parola[0] + " significa " + alienDictionary.translateWord(parola[0])+"\n");
+    	}
+    	else {
+    		alienDictionary.addWord(parola[0], parola[1]);
+    		txtResult.appendText("Traduzione di " + parola[0] + " aggiunta al dizionario\n");
+    	}
     }
     
     
     @FXML
     void doReset(ActionEvent event) {
-
+    	txtResult.clear();
     }
     
 }
